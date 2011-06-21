@@ -1,0 +1,116 @@
+{
+	"bugmenot_name" : {
+		"message": "BugMeNot Lite"
+	},
+	"bugmenot_description": {
+		"message": "Contournez les formulaires de login via www.bugmenot.com."
+	},
+	"optionsTitle": {
+		"message": "Options de BugMeNot Lite"
+	},
+	"maxSize": {
+		"message": "taille maximum de la liste de comptes"
+	},
+	"minRating": {
+		"message": "note minimum des comptes"
+	},
+	"autoHideDelay": {
+		"message": "cacher automatiquement l'icone"
+	},
+	"autoFeedbackDelay": {
+		"message": "afficher l'icone de feedback"
+	},
+	"alwaysAutoSubmit": {
+		"message": "toujours envoyer le formulaire automatiquement"
+	},
+	"neverVoteTwice": {
+		"message": "ne jamais voter deux fois pour un compte"
+	},
+	"dontStoreVote": {
+		"message": "ne pas enregistrer les votes en base de données"
+	},
+	"deleteDatabase": {
+		"message": "supprimer les votes de la base de données"
+	},
+	"deleteDatabaseInput": {
+		"message": "supprimer"
+	},
+	"maxSizeShowAll": {
+		"message": "tout afficher"
+	},
+	"autoHideDelayNever": {
+		"message": "jamais"
+	},
+	"autoHideDelay5s": {
+		"message": "après 5s"
+	},
+	"autoHideDelay10s": {
+		"message": "après 10s"
+	},
+	"autoHideDelay20s": {
+		"message": "après 20s"
+	},
+	"autoFeedbackDelayNever": {
+		"message":"jamais"
+	},
+	"autoFeedbackDelayAfterSubmit": {
+		"message":"après envoi"
+	},
+	"autoFeedbackDelay0s": {
+		"message":"sans délai"
+	},
+	"autoFeedbackDelay5s": {
+		"message":"après 5s"
+	},
+	"autoFeedbackDelay10s": {
+		"message":"après 10s"
+	},
+	"autoFeedbackDelay20s": {
+		"message":"après 20s"
+	},
+	"questionPart1": {
+		"message":"Le login"
+	},
+	"questionPart2": {
+		"message":"est valide ?"
+	},
+	"yes": {
+		"message":"Oui"
+	},
+	"no": {
+		"message":"Non"
+	},
+	"autoSubmit": {
+		"message":"envoi auto du formulaire"
+	},
+	"noFeedback": {
+		"message":"pas de vote"
+	},
+	"tabNoFeedback": {
+		"message":"pas de vote dans l'onglet"
+	},
+	"siteNoFeedback": {
+		"message":"pas de vote sur le site"
+	},
+	"addAccount": {
+		"message":"ajouter un compte sur bugmenot.com"
+	},
+	"password": {
+		"message":"mot de passe"
+	},
+	"noAvailableAccounts": {
+		"message":"pas de compte disponible !"
+	},
+	"blockedSite" : {
+		"message":"site bloqué"
+	},
+	"accounts" : {
+		"message":"comptes"
+	},
+	"account" : {
+		"message":"compte"
+	},
+	"manualLogin" : {
+		"message":"login manuel"
+	}
+}

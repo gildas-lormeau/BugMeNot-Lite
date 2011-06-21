@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body {
+	font-size: 9pt;
+	font-family: sans-serif;
+	color: black;
+}
+.popupWidth {
+	width: 190px;
+}
+</style>
+<script type="text/javascript" src="popup.js"></script>
+</head>
+<body onload="loadDef();">
+	<div style="height: auto;" class="popupWidth">
+		<span id="noAvailableAccounts"></span> <br><br>		
+		<table width="100%">
+		<tr>
+			<td align="center" style="font-size: 8.5pt;">
+				<a href="javascript:addAccount()" id="addAccountLink"></a>
+			</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

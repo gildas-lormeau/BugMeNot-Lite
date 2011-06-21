@@ -1,0 +1,116 @@
+{
+	"bugmenot_name" : {
+		"message": "BugMeNot Lite"
+	},
+	"bugmenot_description": {
+		"message": "Bypass compulsory web registration via www.bugmenot.com."
+	},
+	"optionsTitle": {
+		"message": "BugMeNot Lite Options"
+	},
+	"maxSize": {
+		"message": "maximum account list size"
+	},
+	"minRating": {
+		"message": "minimum account rating"
+	},
+	"autoHideDelay": {
+		"message": "auto-hide icon"
+	},
+	"autoFeedbackDelay": {
+		"message": "show feedback icon"
+	},
+	"alwaysAutoSubmit": {
+		"message": "always auto-submit form"
+	},
+	"neverVoteTwice": {
+		"message": "never vote twice for an account"
+	},
+	"dontStoreVote": {
+		"message": "don't store votes into local database"
+	},
+	"deleteDatabase": {
+		"message": "delete votes from local database"
+	},
+	"deleteDatabaseInput": {
+		"message": "delete"
+	},
+	"maxSizeShowAll": {
+		"message": "show all"
+	},
+	"autoHideDelayNever": {
+		"message": "never"
+	},
+	"autoHideDelay5s": {
+		"message": "after 5s"
+	},
+	"autoHideDelay10s": {
+		"message": "after 10s"
+	},
+	"autoHideDelay20s": {
+		"message": "after 20s"
+	},
+	"autoFeedbackDelayNever": {
+		"message":"never"
+	},
+	"autoFeedbackDelayAfterSubmit": {
+		"message":"after submit"
+	},
+	"autoFeedbackDelay0s": {
+		"message":"instantly"
+	},
+	"autoFeedbackDelay5s": {
+		"message":"after 5s"
+	},
+	"autoFeedbackDelay10s": {
+		"message":"after 10s"
+	},
+	"autoFeedbackDelay20s": {
+		"message":"after 20s"
+	},
+	"questionPart1": {
+		"message":"Did"
+	},
+	"questionPart2": {
+		"message":"work out for you ?"
+	},
+	"yes":{
+		"message":"Yes"
+	},
+	"no": {
+		"message":"No"
+	},
+	"autoSubmit": {
+		"message":"auto-submit form"
+	},
+	"noFeedback": {
+		"message":"no feedback"
+	},
+	"tabNoFeedback": {
+		"message":"no feedback in this tab"
+	},
+	"siteNoFeedback": {
+		"message":"no feedback for this site"
+	},
+	"addAccount": {
+		"message":"add account on bugmenot.com"
+	},
+	"password": {
+		"message":"password"
+	},
+	"noAvailableAccounts": {
+		"message":"no accounts available !"
+	},
+	"blockedSite" : {
+		"message":"site blocked"
+	},
+	"accounts" : {
+		"message":"accounts"
+	},
+	"account" : {
+		"message":"account"
+	},
+	"manualLogin" : {
+		"message":"manual login"
+	}
+}

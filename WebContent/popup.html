@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body {
+	font-size: 9pt;
+	font-family: sans-serif;
+	color: black;
+	background-image: url(icon_bg.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: -15px -15px;
+}
+
+button {
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0.12, rgb(201, 201, 201) ), color-stop(0.79, rgb(247, 247, 247) ) );
+	border-color: rgb(191, 191, 191);
+	border-style: solid;
+	height: 25px;
+	border-radius : 4px;
+}
+
+button:active {
+	border-color: rgb(237, 237, 237);
+	
+}
+
+#yes,#no {
+	width: 55px;
+	margin-left: 5px;
+	margin-top: 10px;
+	cursor: pointer;
+	color: 111111;
+}
+
+#yes {
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0.12, rgb(125, 194, 110) ), color-stop(0.79, rgb(182, 245, 171) ) );
+	border-color: rgb(115, 184, 100);
+	margin-left: 10px;
+}
+
+#yes:active {
+	border-color: rgb(172, 235, 161);
+}
+
+#no {
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0.12, rgb(199, 93, 93) ), color-stop(0.79, rgb(245, 171, 171) ) );
+	border-color: rgb(189, 83, 83);
+	float: right;
+	margin-right: 10px;
+}
+
+#no:active {
+	border-color: rgb(235, 161, 161);
+}
+
+.popupWidth,.other {
+	width: 185px;
+}
+
+.other {
+	display: block;
+}
+
+#login {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+	max-width: 135px;
+	white-space: nowrap;
+}
+
+#autoSubmit {
+	position: relative;
+	top : 3px;
+}
+</style>
+<script type="text/javascript" src="popup.js"></script>
+</head>
+<body onload="load();">
+<div style="height: auto;" class="popupWidth">
+	<div>
+		<span id="questionPart1"></span>
+		<a id="login" onclick="openAccount()" href="javascript:void(0)"></a>
+		<span id="questionPart2"></span>
+	</div>
+	<div style="width: 185px">
+		<button id="yes" onclick="answerYes()"></button>
+		<button id="no" onclick="answerNo()"></button>
+	</div>
+	<div style="float: left; clear: both; margin-top: 10px;">
+		<input type="checkbox" id="autoSubmit" />&nbsp;<label id="autoSubmitLabel" for="autoSubmit"></label></div>
+		<div style="float: left; margin-top: 15px;">
+			<button class="other" onclick="answerCancel()" id="noFeedbackInput"></button>
+		</div>
+	<div style="float: left; margin-top: 15px;">
+		<button class="other" onclick="answerNoFeedback()" id="tabNoFeedbackInput"></button>
+	</div>
+	<div style="float: left; margin-top: 5px;">
+		<button class="other" onclick="answerNoSiteFeedback()" id="siteNoFeedbackInput"></button>
+	</div>
+	<div style="float: left;">
+	<table width="100%">
+		<tr>
+			<td align="center" style="font-size: 8.5pt;">
+				<a href="javascript:addAccount()" id="addAccountLink"></a>
+			</td>
+		</tr>
+	</table>
+	</div>
+</div>
+</body>
+</html>

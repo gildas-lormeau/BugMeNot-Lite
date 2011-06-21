@@ -1,0 +1,111 @@
+/*
+ * Copyright 2011 Gildas Lormeau
+ * contact : gildas.lormeau <at> gmail.com
+ * 
+ * This file is part of BugMeNot Lite.
+ *
+ *   BugMeNot Lite is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   BugMeNot Lite is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with BugMeNot Lite.  If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
+ body>div {
+	position: relative;
+	margin: 0px auto;
+	width: 450px;
+	font-family: sans-serif;
+	background-color: #F3F7FC;
+	border: 1px solid #D2DBED;
+	font-family: Arial, sans-serif;
+	font-size: 13px;
+}
+
+body>div>div {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.optionBlock {
+	overflow: hidden;
+	height: 35px;
+}
+
+h2 {
+	font-size: 17px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+label {
+	display: inline-block;
+	width: 325px;
+}
+
+img + label {
+	width: 303px;
+}
+
+
+select,button {
+	width: 100px;
+}
+
+select {
+	margin-top: 0px;
+}
+
+button {
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0.12, rgb(191
+		, 191, 191) ), color-stop(0.79, rgb(247, 247, 247) ) );
+	border-color: rgb(191, 191, 191);
+	border-style: solid;
+}
+
+button:active {
+	border-color: rgb(247, 247, 247);
+}
+
+.open, .close {
+	-webkit-transition-duration: 250ms;
+	-webkit-transition-delay: 0, 250ms;
+}
+
+.open {
+	-webkit-transition-property: height, opacity;	
+}
+
+.close {
+	-webkit-transition-property: opacity, height;	
+}
+
+input[type="checkbox"] {
+	width: auto;
+	margin-left: 85px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+#main {
+	display: none;
+	border-radius: 5px;
+}
+
+.more {
+	padding-right: 5px;
+	padding-left: 2px;
+}
+
+#icon {
+	width: 25px;
+	padding-right: 10px;
+	vertical-align: bottom;
+}
