@@ -1,22 +1,30 @@
 {
-	"default_locale" : "en",
-	"name" : "__MSG_bugmenot_name__",
-	"icons" : {
-		"48" : "icon_48.png",
-		"128" : "icon_128.png"
-	},
-	"version" : "0.3.9",
-	"description" : "__MSG_bugmenot_description__",
-	"content_scripts" : [ {
-		"matches" : [ "http://*/*", "https://*/*" ],
-		"js" : [ "content.js" ],
-		"run_at" : "document_end",
-		"all_frames" : true
-	} ],
-	"background_page" : "background.html",
-	"options_page": "options.html",
-	"page_action" : {
-		"default_icon" : "icon_48.png"
-	},
-	"permissions" : [ "tabs", "http://www.bugmenot.com/" ]	
+  "default_locale" : "en",
+  "name" : "__MSG_bugmenot_name__",
+  "icons" : {
+    "48" : "icon_48.png",
+    "128" : "icon_128.png"
+  },
+  "version" : "0.3.10",
+  "description" : "__MSG_bugmenot_description__",
+  "content_scripts" : [ {
+    "matches" : [ "http://*/*", "https://*/*" ],
+    "js" : [ "content.js" ],
+    "run_at" : "document_end",
+    "all_frames" : true
+  } ],
+  "background" : {
+    "scripts": [
+      "accountStorage.js",
+      "config.js",
+      "options.js",
+      "background.js"
+    ]
+  },
+  "options_page": "options.html",
+  "page_action" : {
+    "default_icon" : "icon_48.png"
+  },
+  "permissions" : [ "tabs", "http://www.bugmenot.com/" ],
+  "manifest_version": 2
 }

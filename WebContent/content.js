@@ -143,7 +143,7 @@ FormData.prototype._initLoginSelect = function(accounts) {
  */
 FormData.prototype.init = function(account, accounts) {
 	var that = this;
-	location.href= "javascript:__bmn_injectSubmitHook__(" + formsData.getFormsIndex().join(",") + ");"
+	location.href= "javascript:__bmn_injectSubmitHook__(" + formsData.getFormsIndex().join(",") + ");";
 	if (!this.loginSelect) {
 		this.loginSelect = document.createElement("select");
 		this._initLoginSelect(accounts);

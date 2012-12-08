@@ -18,85 +18,72 @@
  *   along with BugMeNot Lite.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var params = getUrlParams();
-
-function getUrlParams() {
-	var i, ret = {}, urlParams = window.location.search.substr(1).split('&'), value;
-	for (i = 0; i < urlParams.length; i++) {
-		value = urlParams[i].split('=');
-		ret[value[0]] = value[1];
-	}
-	return ret;
-}
+var loginInput = document.getElementById("login");
+var yesInput = document.getElementById("yes");
+var noInput = document.getElementById("no");
+var noFeedbackInput = document.getElementById("noFeedbackInput");
+var tabNoFeedbackInput = document.getElementById("tabNoFeedbackInput");
+var siteNoFeedbackInput = document.getElementById("siteNoFeedbackInput");
 
 function answerNo() {
-	chrome.extension.getBackgroundPage().submitFeeedBack({		
+	chrome.extension.getBackgroundPage().submitFeeedBack({
 		autoSubmit : document.getElementById("autoSubmit").checked,
 		vote : "N",
 		tabId : parseInt(params.tabId, 10)
-	});	
+	});
 	close();
 }
 function answerYes() {
-	chrome.extension.getBackgroundPage().submitFeeedBack({		
+	chrome.extension.getBackgroundPage().submitFeeedBack({
 		vote : "Y",
 		tabId : parseInt(params.tabId, 10)
 	});
 	close();
 }
 function answerNoFeedback() {
-	chrome.extension.getBackgroundPage().submitFeeedBack({		
+	chrome.extension.getBackgroundPage().submitFeeedBack({
 		tabId : parseInt(params.tabId, 10),
 		noFeedback : true
 	});
 	close();
 }
 function answerCancel() {
-	chrome.extension.getBackgroundPage().submitFeeedBack({		
+	chrome.extension.getBackgroundPage().submitFeeedBack({
 		tabId : parseInt(params.tabId, 10),
 		cancel : true
 	});
 	close();
 }
 function answerNoSiteFeedback() {
-	chrome.extension.getBackgroundPage().submitFeeedBack({		
+	chrome.extension.getBackgroundPage().submitFeeedBack({
 		tabId : parseInt(params.tabId, 10),
 		noSiteFeedback : true
 	});
 	close();
 }
-function addAccount() {
-	chrome.extension.getBackgroundPage().submitFeeedBack({		
-		tabId : parseInt(params.tabId, 10),
-		addAccount : true
-	});
-	close();
-}
 function openAccount(closePopup) {
-	chrome.extension.getBackgroundPage().submitFeeedBack({		
+	chrome.extension.getBackgroundPage().submitFeeedBack({
 		tabId : parseInt(params.tabId, 10),
 		openAccount : true
-	});	
+	});
 	if (closePopup)
 		close();
 }
-function load() {
-	document.getElementById("login").innerHTML = decodeURI(params.login);
-	document.getElementById("login").title = chrome.i18n.getMessage("password") + ' : "' + decodeURI(params.password) + '"';
-	document.getElementById("autoSubmit").checked = params.autoSubmit == "yes";
-	
-	document.getElementById("questionPart1").innerHTML = chrome.i18n.getMessage("questionPart1");
-	document.getElementById("questionPart2").innerHTML = chrome.i18n.getMessage("questionPart2");
-	document.getElementById("yes").innerHTML = chrome.i18n.getMessage("yes");
-	document.getElementById("no").innerHTML = chrome.i18n.getMessage("no");
-	document.getElementById("autoSubmitLabel").innerHTML = chrome.i18n.getMessage("autoSubmit");
-	document.getElementById("noFeedbackInput").innerHTML = chrome.i18n.getMessage("noFeedback");
-	document.getElementById("tabNoFeedbackInput").innerHTML = chrome.i18n.getMessage("tabNoFeedback");
-	document.getElementById("siteNoFeedbackInput").innerHTML = chrome.i18n.getMessage("siteNoFeedback");
-	document.getElementById("addAccountLink").innerHTML = chrome.i18n.getMessage("addAccount");
-}
 
-function loadDef() {
-	document.getElementById("noAvailableAccounts").innerHTML = chrome.i18n.getMessage("noAvailableAccounts");
-	document.getElementById("addAccountLink").innerHTML = chrome.i18n.getMessage("addAccount");	
-}
+loginInput.addEventListener("click", openAccount, false);
+yesInput.addEventListener("click", answerYes, false);
+noInput.addEventListener("click", answerNo, false);
+noFeedbackInput.addEventListener("click", answerCancel, false);
+tabNoFeedbackInput.addEventListener("click", answerNoFeedback, false);
+siteNoFeedbackInput.addEventListener("click", answerNoSiteFeedback, false);
+loginInput.innerHTML = decodeURI(params.login);
+document.getElementById("login").title = chrome.i18n.getMessage("password") + ' : "' + decodeURI(params.password) + '"';
+document.getElementById("autoSubmit").checked = params.autoSubmit == "yes";
+document.getElementById("questionPart1").innerHTML = chrome.i18n.getMessage("questionPart1");
+document.getElementById("questionPart2").innerHTML = chrome.i18n.getMessage("questionPart2");
+yesInput.innerHTML = chrome.i18n.getMessage("yes");
+noInput.innerHTML = chrome.i18n.getMessage("no");
+document.getElementById("autoSubmitLabel").innerHTML = chrome.i18n.getMessage("autoSubmit");
+noFeedbackInput.innerHTML = chrome.i18n.getMessage("noFeedback");
+tabNoFeedbackInput.innerHTML = chrome.i18n.getMessage("tabNoFeedback");
+siteNoFeedbackInput.innerHTML = chrome.i18n.getMessage("siteNoFeedback");

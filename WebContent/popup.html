@@ -75,39 +75,40 @@ button:active {
 	top : 3px;
 }
 </style>
-<script type="text/javascript" src="popup.js"></script>
 </head>
-<body onload="load();">
+<body>
 <div style="height: auto;" class="popupWidth">
 	<div>
 		<span id="questionPart1"></span>
-		<a id="login" onclick="openAccount()" href="javascript:void(0)"></a>
+		<a id="login" href="javascript:void(0)"></a>
 		<span id="questionPart2"></span>
 	</div>
 	<div style="width: 185px">
-		<button id="yes" onclick="answerYes()"></button>
-		<button id="no" onclick="answerNo()"></button>
+		<button id="yes"></button>
+		<button id="no"></button>
 	</div>
 	<div style="float: left; clear: both; margin-top: 10px;">
 		<input type="checkbox" id="autoSubmit" />&nbsp;<label id="autoSubmitLabel" for="autoSubmit"></label></div>
 		<div style="float: left; margin-top: 15px;">
-			<button class="other" onclick="answerCancel()" id="noFeedbackInput"></button>
+			<button class="other" id="noFeedbackInput"></button>
 		</div>
 	<div style="float: left; margin-top: 15px;">
-		<button class="other" onclick="answerNoFeedback()" id="tabNoFeedbackInput"></button>
+		<button class="other" id="tabNoFeedbackInput"></button>
 	</div>
 	<div style="float: left; margin-top: 5px;">
-		<button class="other" onclick="answerNoSiteFeedback()" id="siteNoFeedbackInput"></button>
+		<button class="other" id="siteNoFeedbackInput"></button>
 	</div>
 	<div style="float: left;">
 	<table width="100%">
 		<tr>
 			<td align="center" style="font-size: 8.5pt;">
-				<a href="javascript:addAccount()" id="addAccountLink"></a>
+				<a href="javascript:void(0)" id="addAccountLink"></a>
 			</td>
 		</tr>
 	</table>
 	</div>
+	<script type="text/javascript" src="popupCommon.js"></script>
+	<script type="text/javascript" src="popup.js"></script>
 </div>
 </body>
 </html>

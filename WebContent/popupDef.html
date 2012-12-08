@@ -11,18 +11,19 @@ body {
 	width: 190px;
 }
 </style>
-<script type="text/javascript" src="popup.js"></script>
 </head>
-<body onload="loadDef();">
+<body>
 	<div style="height: auto;" class="popupWidth">
 		<span id="noAvailableAccounts"></span> <br><br>		
 		<table width="100%">
-		<tr>
-			<td align="center" style="font-size: 8.5pt;">
-				<a href="javascript:addAccount()" id="addAccountLink"></a>
-			</td>
-		</tr>
-	</table>
+			<tr>
+				<td align="center" style="font-size: 8.5pt;">
+					<a href="javascript:void(0)" id="addAccountLink"></a>
+				</td>
+			</tr>
+		</table>
 	</div>
+	<script type="text/javascript" src="popupCommon.js"></script>
+	<script type="text/javascript" src="popupDef.js"></script>
 </body>
 </html>
