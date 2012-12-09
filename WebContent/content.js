@@ -221,7 +221,7 @@ FormsData.prototype._findFormElements = function(forms) {
 				}
 			} else if (element.type == "password" && (passwordIndex + 1 == visibleElementIndex))
 				passwordInput = null;
-			else if (passwordInput && (!element.type || element.type == "text"))
+			else if (passwordInput && (!element.type || element.type == "text" || element.type == "email"))
 				loginInput = element;
 			if (element.type != "hidden")
 				visibleElementIndex++;
