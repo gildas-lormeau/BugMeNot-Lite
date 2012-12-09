@@ -17,7 +17,6 @@
     "scripts": [
       "accountStorage.js",
       "config.js",
-      "options.js",
       "background.js"
     ]
   },
