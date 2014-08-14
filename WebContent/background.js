@@ -363,20 +363,24 @@ TabData.prototype.onSubmitFeedback = function(tabIndex, msg) {
 		this._hideIcon();
 		this.displayPopup = false;
 		this.autoSubmit = msg.autoSubmit;
-		request = new XMLHttpRequest();
-		request.open('GET', 'http://www.bugmenot.com/vote_ajax.php?id=' + this.accounts[this.currentIndex].loginId + '&site='
-				+ this.accounts[this.currentIndex].hostId + '&vote=' + msg.vote, true);
-		/*TODO: It's broken now
-				we have to use form data to submit vote:
-				URL:http://bugmenot.com/vote.php
-				FORM:
-					account:1455324
-                    site:7686366
-                    vote:Y
-                raw:account=1455324&site=7686366&vote=Y
+		/*  we have to use form data to submit vote:
+			URL:POST http://bugmenot.com/vote.php
+			FORM:
+				account:1455324
+                site:7686366
+                vote:Y
+            raw:account=1455324&site=7686366&vote=Y
 		*/
-		
-		request.send(null);
+		request = new XMLHttpRequest();
+		request.open('POST', 'http://bugmenot.com/vote.php', true);
+		request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+		var params = 'account=' + encodeURIComponent(this.accounts[this.currentIndex].loginId) + 
+		  '&site=' + encodeURIComponent(this.accounts[this.currentIndex].hostId)+ 
+		  '&vote=' + encodeURIComponent(msg.vote);
+
+		request.send(params);
+
 		if (!config.dontStoreVote())
 			accountStorage.add(this.accounts[this.currentIndex].loginId, this.accounts[this.currentIndex].hostId, msg.vote);
 		this.accounts[this.currentIndex].trustedYes = msg.vote == "Y";
