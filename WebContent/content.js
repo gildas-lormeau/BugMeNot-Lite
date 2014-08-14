@@ -322,9 +322,8 @@ document.addEventListener("DOMNodeInsertedIntoDocument", function(event) {
 }, true);
 
 // START
-if (document.location.href.indexOf("http://www.bugmenot.com/submit.php?") == 0) {
-	document.getElementById("host").value = decodeURI(document.location.search.substr(1));
-	document.getElementById("f_username").focus();
+if (document.location.href.indexOf("http://bugmenot.com/submit.php?") == 0) {
+	document.getElementById("username").focus();
 } else
 	port.postMessage( {
 		init : true,

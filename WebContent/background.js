@@ -404,7 +404,7 @@ TabData.prototype.onSubmitFeedback = function(tabIndex, msg) {
 	else if (msg.addAccount)
 		chrome.tabs.create( {
 			index : this.tabIndex + 1,
-			url : "http://www.bugmenot.com/submit.php?" + encodeURI(this.hosts[0]),
+			url : "http://www.bugmenot.com/submit.php?seed=" + encodeURI(this.hosts[0]),
 			selected : false
 		});
 	else {
