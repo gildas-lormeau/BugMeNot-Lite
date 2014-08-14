@@ -184,12 +184,12 @@ TabData.prototype._parseAccounts = function(htmlText) {
 	range = document.createRange();
 	range.selectNode(document.body);
 	parsedHTML = range.createContextualFragment(htmlText);
-	loginNodes = parsedHTML.querySelectorAll(".account tr:nth-child(1) td");
+	loginNodes = parsedHTML.querySelectorAll(".account dl dd:nth-child(2) kbd");
 	if (loginNodes.length) {
-		hostIds = parsedHTML.querySelectorAll(".account input:nth-child(2)");
-		loginIds = parsedHTML.querySelectorAll(".account input:nth-child(1)");
-		passwordNodes = parsedHTML.querySelectorAll(".account tr:nth-child(2) td");
-		statsNodes = parsedHTML.querySelectorAll(".account tr:nth-child(4) td");
+		hostIds = parsedHTML.querySelectorAll(".account form input[name='site']");
+		loginIds = parsedHTML.querySelectorAll(".account form input[name='account']");
+		passwordNodes = parsedHTML.querySelectorAll(".account dl dd:nth-child(4) kbd");
+		statsNodes = parsedHTML.querySelectorAll(".account dl dd.stats li.success_rate");
 		for (i = 0; i < loginNodes.length; i++)
 			if (loginNodes[i].textContent && passwordNodes[i].textContent && !this.accounts.some(function(element, index, array) {
 				return element.login == loginNodes[i].textContent;
@@ -269,7 +269,7 @@ TabData.prototype._requestAccounts = function(host) {
 			}
 		}
 	};
-	request.open('GET', 'http://www.bugmenot.com/view/' + host + '?utm_source=extension&utm_medium=firefox', true);
+	request.open('GET', 'http://www.bugmenot.com/view/' + host + '?utm_source=extension&utm_medium=chrome', true);
 	request.send(null);
 };
 
@@ -363,10 +363,24 @@ TabData.prototype.onSubmitFeedback = function(tabIndex, msg) {
 		this._hideIcon();
 		this.displayPopup = false;
 		this.autoSubmit = msg.autoSubmit;
+		/*  we have to use form data to submit vote:
+			URL:POST http://bugmenot.com/vote.php
+			FORM:
+				account:1455324
+                site:7686366
+                vote:Y
+            raw:account=1455324&site=7686366&vote=Y
+		*/
 		request = new XMLHttpRequest();
-		request.open('GET', 'http://www.bugmenot.com/vote_ajax.php?id=' + this.accounts[this.currentIndex].loginId + '&site='
-				+ this.accounts[this.currentIndex].hostId + '&vote=' + msg.vote, true);
-		request.send(null);
+		request.open('POST', 'http://bugmenot.com/vote.php', true);
+		request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+		var params = 'account=' + encodeURIComponent(this.accounts[this.currentIndex].loginId) + 
+		  '&site=' + encodeURIComponent(this.accounts[this.currentIndex].hostId)+ 
+		  '&vote=' + encodeURIComponent(msg.vote);
+
+		request.send(params);
+
 		if (!config.dontStoreVote())
 			accountStorage.add(this.accounts[this.currentIndex].loginId, this.accounts[this.currentIndex].hostId, msg.vote);
 		this.accounts[this.currentIndex].trustedYes = msg.vote == "Y";
@@ -390,7 +404,7 @@ TabData.prototype.onSubmitFeedback = function(tabIndex, msg) {
 	else if (msg.addAccount)
 		chrome.tabs.create( {
 			index : this.tabIndex + 1,
-			url : "http://www.bugmenot.com/submit.php?" + encodeURI(this.hosts[0]),
+			url : "http://www.bugmenot.com/submit.php?seed=" + encodeURI(this.hosts[0]),
 			selected : false
 		});
 	else {
