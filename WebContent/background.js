@@ -184,12 +184,12 @@ TabData.prototype._parseAccounts = function(htmlText) {
 	range = document.createRange();
 	range.selectNode(document.body);
 	parsedHTML = range.createContextualFragment(htmlText);
-	loginNodes = parsedHTML.querySelectorAll(".account tr:nth-child(1) td");
+	loginNodes = parsedHTML.querySelectorAll(".account dl dd:nth-child(2) kbd");
 	if (loginNodes.length) {
-		hostIds = parsedHTML.querySelectorAll(".account input:nth-child(2)");
-		loginIds = parsedHTML.querySelectorAll(".account input:nth-child(1)");
-		passwordNodes = parsedHTML.querySelectorAll(".account tr:nth-child(2) td");
-		statsNodes = parsedHTML.querySelectorAll(".account tr:nth-child(4) td");
+		hostIds = parsedHTML.querySelectorAll(".account form input[name='site']");
+		loginIds = parsedHTML.querySelectorAll(".account form input[name='account']");
+		passwordNodes = parsedHTML.querySelectorAll(".account dl dd:nth-child(4) kbd");
+		statsNodes = parsedHTML.querySelectorAll(".account dl dd.stats li.success_rate");
 		for (i = 0; i < loginNodes.length; i++)
 			if (loginNodes[i].textContent && passwordNodes[i].textContent && !this.accounts.some(function(element, index, array) {
 				return element.login == loginNodes[i].textContent;
@@ -269,7 +269,7 @@ TabData.prototype._requestAccounts = function(host) {
 			}
 		}
 	};
-	request.open('GET', 'http://www.bugmenot.com/view/' + host + '?utm_source=extension&utm_medium=firefox', true);
+	request.open('GET', 'http://www.bugmenot.com/view/' + host + '?utm_source=extension&utm_medium=chrome', true);
 	request.send(null);
 };
 
@@ -366,6 +366,16 @@ TabData.prototype.onSubmitFeedback = function(tabIndex, msg) {
 		request = new XMLHttpRequest();
 		request.open('GET', 'http://www.bugmenot.com/vote_ajax.php?id=' + this.accounts[this.currentIndex].loginId + '&site='
 				+ this.accounts[this.currentIndex].hostId + '&vote=' + msg.vote, true);
+		/*TODO: It's broken now
+				we have to use form data to submit vote:
+				URL:http://bugmenot.com/vote.php
+				FORM:
+					account:1455324
+                    site:7686366
+                    vote:Y
+                raw:account=1455324&site=7686366&vote=Y
+		*/
+		
 		request.send(null);
 		if (!config.dontStoreVote())
 			accountStorage.add(this.accounts[this.currentIndex].loginId, this.accounts[this.currentIndex].hostId, msg.vote);
